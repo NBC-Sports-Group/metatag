@@ -1101,7 +1101,8 @@ function metatag_update_7018(&$sandbox) {
     // Get a list of all records affected.
     $sandbox['records'] = db_query("SELECT entity_type, entity_id, language
       FROM {metatag}
-      WHERE revision_id = 0")
+      WHERE revision_id = 0
+      ORDER BY entity_id DESC")
       ->fetchAll();
 
     // If there's no data, don't bother with the extra work.
